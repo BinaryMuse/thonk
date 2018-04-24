@@ -24,7 +24,8 @@ const thinks = [
   "https://i.imgur.com/2lqsWvg.png",
   "http://i.imgur.com/tKgUWaf.jpg",
   "https://i.imgur.com/o2EZU5u.png",
-  "https://i.imgur.com/DMAMVhV.png"
+  "https://i.imgur.com/DMAMVhV.png",
+  "https://i.imgur.com/PVOoGmX.png"
 ]
 
 const rand = uniqueRandom(0, thinks.length - 1)
