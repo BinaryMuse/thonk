@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path')
+
 const express = require('express')
 const crpc = require('hubot-rpc-gen')
 const uniqueRandom = require('unique-random')
@@ -5,34 +8,27 @@ const uniqueRandom = require('unique-random')
 const app = express()
 const endpoint = crpc.endpoint(app, 'thonk', '/_chatops')
 
-const thinks = [
-  "https://i.imgur.com/Xw6ct8l.png?1",
-  "https://i.imgur.com/uel3jYM.png",
-  "https://i.imgur.com/L3TV5XJ.jpg",
-  "https://i.imgur.com/AaSMv71.gif",
-  "https://i.imgur.com/9I2Qh6t.gif",
-  "https://i.imgur.com/PrunYus.png",
-  "https://i.imgur.com/SmPXo67.jpg",
-  "https://i.imgur.com/YCGbIFV.png",
-  "https://i.redd.it/ys859qr27m9z.png",
-  "https://i.imgur.com/Hk3zD4B.png",
-  "https://i.imgur.com/Kt2b8U9.gif",
-  "https://i.imgur.com/XlX03te.png",
-  "https://i.imgur.com/57C2h1W.png",
-  "https://i.imgur.com/bO5y33W.png",
-  "http://i.imgur.com/o7EsvoS.gif",
-  "https://i.imgur.com/2lqsWvg.png",
-  "http://i.imgur.com/tKgUWaf.jpg",
-  "https://i.imgur.com/o2EZU5u.png",
-  "https://i.imgur.com/DMAMVhV.png",
-  "https://i.imgur.com/PVOoGmX.png"
-]
+const thinks = fs.readFileSync(path.join(__dirname, 'thinks.txt'), 'utf8').split("\n").filter(item => !!item)
+console.log(`Loaded ${thinks.length} thinks`)
 
 const rand = uniqueRandom(0, thinks.length - 1)
 const randomItem = () => thinks[rand()]
 
+app.get('/', (req, res) => res.redirect('/random'))
+
+app.get('/random', (req, res) => {
+  res.send(`<img src="${randomItem()}">`)
+  res.end()
+})
+
+app.get('/all', (req, res) => {
+  const images = thinks.map(think => `<p><img src="${think}"></p>`).join("<hr>")
+  res.send(images)
+  res.end()
+})
+
 endpoint.method('me', {
-  help: 'me',
+  help: 'me - generate a random thinky image',
   regex: 'me',
 }, (opts, respond) => {
   try {
@@ -44,5 +40,5 @@ endpoint.method('me', {
 
 const port = process.env.PORT || 8123
 app.listen(port, () => {
-  console.log(`Listening on ${port}`)
+  console.log(`Listening on port ${port}`)
 })
