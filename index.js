@@ -17,6 +17,7 @@ const thinks = [
   "https://i.imgur.com/Hk3zD4B.png",
   "https://i.imgur.com/Kt2b8U9.gif",
   "https://i.imgur.com/XlX03te.png",
+  "https://i.imgur.com/57C2h1W.png",
   "https://i.imgur.com/bO5y33W.png",
   "http://i.imgur.com/o7EsvoS.gif",
   "https://i.imgur.com/2lqsWvg.png",
