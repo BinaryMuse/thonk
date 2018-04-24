@@ -1,16 +1,24 @@
 {
   "name": "thonk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "What do you thonk?",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "publish": "now && now alias"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "now": {
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "alias": "thonk"
+  },
+  "author": "Michelle Tilley <michelle@michelletilley.net>",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
     "hubot-rpc-gen": "^0.1.1"
+  },
+  "devDependencies": {
+    "now": "^11.1.7"
   }
 }
