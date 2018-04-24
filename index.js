@@ -22,7 +22,7 @@ app.get('/random', (req, res) => {
 })
 
 app.get('/all', (req, res) => {
-  const images = thinks.map(think => `<p><img src="${think}"></p>`).join("<hr>")
+  const images = thinks.map(think => `<p><img src="${think}" style="max-width: 800px"></p>`).join("<hr>")
   res.send(images)
   res.end()
 })
