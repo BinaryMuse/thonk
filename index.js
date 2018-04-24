@@ -1,5 +1,6 @@
 const express = require('express')
 const crpc = require('hubot-rpc-gen')
+const uniqueRandom = require('unique-random')
 
 const app = express()
 const endpoint = crpc.endpoint(app, 'thonk', '/_chatops')
@@ -26,12 +27,18 @@ const thinks = [
   "https://i.imgur.com/DMAMVhV.png"
 ]
 
+const rand = uniqueRandom(0, thinks.length - 1)
+const randomItem = () => thinks[rand()]
+
 endpoint.method('me', {
   help: 'me',
   regex: 'me',
 }, (opts, respond) => {
-  const rand = thinks[Math.floor(Math.random() * thinks.length)];
-  respond(rand);
+  try {
+    respond(randomItem())
+  } catch (err) {
+    respond("Error choosing a random think!")
+  }
 })
 
 const port = process.env.PORT || 8123

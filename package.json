@@ -16,7 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
-    "hubot-rpc-gen": "^0.1.1"
+    "hubot-rpc-gen": "^0.1.1",
+    "unique-random": "^2.0.0"
   },
   "devDependencies": {
     "now": "^11.1.7"
