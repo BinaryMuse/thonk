@@ -17,8 +17,26 @@ const randomItem = () => thinks[rand()]
 app.get('/', (req, res) => res.redirect('/random'))
 
 app.get('/random', (req, res) => {
-  res.send(`<img src="${randomItem()}">`)
-  res.end()
+  const item = randomItem()
+  const type = req.get('content-type') || 'text/html'
+
+  switch (type) {
+    case 'text/plain': {
+      res.send(item)
+      res.end()
+      break
+    }
+    case 'application/json': {
+      res.json({image: item})
+      res.end()
+      break
+    }
+    default: {
+      res.send(`<img src="${item}">`)
+      res.end()
+      break
+    }
+  }
 })
 
 app.get('/all', (req, res) => {
