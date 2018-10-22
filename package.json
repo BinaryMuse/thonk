@@ -6,12 +6,6 @@
     "start": "node index.js",
     "publish": "now && now alias"
   },
-  "now": {
-    "env": {
-      "NODE_ENV": "production"
-    },
-    "alias": "thonk"
-  },
   "author": "Michelle Tilley <michelle@michelletilley.net>",
   "license": "MIT",
   "dependencies": {

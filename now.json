@@ -1,0 +1,6 @@
+{
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "alias": "thonk"
+}
