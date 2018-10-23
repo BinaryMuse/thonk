@@ -7,6 +7,7 @@ module.exports = function (app, randomItem) {
     item = item || randomItem()
     const msg = composeMessageWithoutActions(item)
     const attachment = msg.attachments[0]
+    msg.response_type = "ephemeral"
     attachment.pretext = "Whatcha thinkin?"
     attachment.callback_id = `think_me:${item}`
     attachment.actions = [
@@ -64,13 +65,13 @@ module.exports = function (app, randomItem) {
           break
         }
         case 'random': {
-          res.json(slack.composeMessageWithActions())
+          res.json(composeMessageWithActions())
           break
         }
         case 'accept': {
           const channel = payload.channel.id
           const ts = payload.message_ts
-          const msg = slack.composeMessageWithoutActions(item)
+          const msg = composeMessageWithoutActions(item)
           msg.channel = channel
           msg.as_user = true
           res.json({
