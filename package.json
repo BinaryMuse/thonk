@@ -17,6 +17,6 @@
     "unique-random": "^2.0.0"
   },
   "devDependencies": {
-    "now": "^11.1.7"
+    "now": "^11.4.6"
   }
 }
