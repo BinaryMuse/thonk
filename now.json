@@ -3,5 +3,8 @@
     "NODE_ENV": "production",
     "SLACK_ACCESS_TOKEN": "@slack_access_token"
   },
-  "alias": "thonk"
+  "alias": "thonk",
+  "github": {
+    "autoAlias": false
+  }
 }
