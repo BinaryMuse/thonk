@@ -12,7 +12,7 @@ const uniqueRandom = require('unique-random')
 
 const app = express()
 const endpoint = crpc.endpoint(app, 'thonk', '/_chatops')
-const web = new WebClient(process.env.SLACK_ACCESS_TOKEN)
+const web = new WebClient(process.env.SLACK_ACCESS_TOKEN || process.env.slack_access_token)
 
 const thinks = fs.readFileSync(path.join(__dirname, 'thinks.txt'), 'utf8').split("\n").filter(item => !!item)
 console.log(`Loaded ${thinks.length} thinks`)
