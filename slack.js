@@ -73,7 +73,8 @@ module.exports = function (app, randomItem) {
           const ts = payload.message_ts
           const msg = composeMessageWithoutActions(item)
           msg.channel = channel
-          msg.as_user = true
+          msg.as_user = false
+          msg.attachments[0].pretext = `/think for ${payload.user.name}`
           res.json({
             "text": "You got it!"
           })
