@@ -57,6 +57,7 @@ module.exports = function (app, randomItem) {
 
   function action_handler (req, res, next) {
     const payload = JSON.parse(req.body.payload)
+    // console.log(payload)
     if (payload.callback_id.startsWith('think_me:')) {
       const item = payload.callback_id.substr(9)
       switch (payload.actions[0].value) {
@@ -75,6 +76,7 @@ module.exports = function (app, randomItem) {
           msg.channel = channel
           msg.as_user = false
           msg.attachments[0].pretext = `/think for ${payload.user.name}`
+          msg.attachments[0].fallback = `/think for ${payload.user.name}`
           res.json({
             "text": "You got it!"
           })
