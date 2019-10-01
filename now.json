@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "env": {
     "NODE_ENV": "production",
     "SLACK_ACCESS_TOKEN": "@slack_access_token"
@@ -6,5 +7,20 @@
   "alias": "thonk",
   "github": {
     "autoAlias": false
-  }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "status": 302,
+      "headers": { "Location": "/random" }
+    },
+    { "src": "/all", "dest": "/api/web/all.js" },
+    { "src": "/random", "dest": "/api/web/random.js" },
+
+    { "src": "/slack/slash", "dest": "/api/slack.js?type=slash" },
+    { "src": "/slack/action", "dest": "/api/slack.js?type=action" },
+
+    { "src": "/_chatops", "dest": "/api/hubot.js?type=manifest" },
+    { "src": "/_chatops/(?<method>[^/]+)", "dest": "/api/hubot.js?type=method&method=$method" }
+  ]
 }
