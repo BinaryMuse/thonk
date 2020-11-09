@@ -8,6 +8,12 @@
   "github": {
     "autoAlias": false
   },
+  "functions": {
+    "api/*.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
   "routes": [
     {
       "src": "/",
