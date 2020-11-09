@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "What do you thonk?",
   "scripts": {
-    "start": "vercel dev",
-    "publish": "now && now alias"
+    "start": "vercel dev"
   },
   "author": "Michelle Tilley <michelle@michelletilley.net>",
   "license": "MIT",

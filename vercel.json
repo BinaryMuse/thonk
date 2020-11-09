@@ -6,7 +6,7 @@
   },
   "alias": "thonk",
   "github": {
-    "autoAlias": false
+    "autoAlias": true
   },
   "functions": {
     "api/*.js": {
@@ -26,7 +26,7 @@
     { "src": "/slack/slash", "dest": "/api/slack.js?type=slash" },
     { "src": "/slack/action", "dest": "/api/slack.js?type=action" },
 
-    { "src": "/_chatops", "dest": "/api/hubot.js?type=manifest" },
+    { "src": "/_chatops", "dest": "/_chatops.json" },
     { "src": "/_chatops/(?<method>[^/]+)", "dest": "/api/hubot.js?type=method&method=$method" }
   ]
 }
