@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "What do you thonk?",
   "scripts": {
-    "start": "node index.js",
+    "start": "vercel dev",
     "publish": "now && now alias"
   },
   "author": "Michelle Tilley <michelle@michelletilley.net>",
@@ -17,6 +17,7 @@
     "unique-random": "^2.0.0"
   },
   "devDependencies": {
-    "now": "^11.4.6"
+    "now": "^11.4.6",
+    "vercel": "^20.1.2"
   }
 }
