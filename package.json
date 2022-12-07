@@ -9,9 +9,9 @@
   "license": "MIT",
   "dependencies": {
     "@slack/client": "^4.8.0",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "hubot-rpc-gen": "^0.1.1",
     "unique-random": "^2.0.0"
   },
