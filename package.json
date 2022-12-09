@@ -11,7 +11,7 @@
     "@slack/client": "^4.8.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "hubot-rpc-gen": "^0.1.1",
     "unique-random": "^2.0.0"
   },
